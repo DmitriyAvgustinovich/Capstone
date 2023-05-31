@@ -27,7 +27,7 @@
     "reselect": "^4.1.8",
     "sass": "^1.62.1",
     "stripe": "^12.7.0",
-    "styled-components": "^6.0.0-rc.2",
+    "styled-components": "5.3.3",
     "typescript": "^5.0.4",
     "web-vitals": "^2.1.4"
   },
@@ -58,6 +58,7 @@
   "devDependencies": {
     "@redux-saga/core": "^1.2.3",
     "@types/redux-logger": "^3.0.9",
+    "@types/styled-components": "^5.1.26",
     "babel-plugin-macros": "^3.1.0",
     "typed-redux-saga": "^1.5.0"
   }

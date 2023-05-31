@@ -1,10 +1,9 @@
-import { useState } from "react"
+import { ChangeEvent, FormEvent, useState } from "react"
 import FormInput from "../form-input/form-input.component"
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component"
-
-import './sign-in-form.styles.scss'
 import { useDispatch } from "react-redux"
 import { emailSignInStart, googleSignInStart } from "../../store/user/user.action"
+import { ButtonsContainer, SignInContainer } from "./sign-in-form.styles"
 
 const defaultFormFields = {
   email: '',
@@ -24,7 +23,7 @@ const SignInForm = () => {
     dispatch(googleSignInStart())
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     try {
@@ -32,27 +31,18 @@ const SignInForm = () => {
       resetFormFields()
 
     } catch (error) {
-      switch (error.code) {
-        case 'auth/wrong-password':
-          alert('incorrect password for email')
-          break
-        case 'auth/user-not-found':
-          alert('no user associated with this email')
-          break
-        default:
-          console.log(error)
-      }
+      console.log(error)
     }
   }
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
 
     setFormFields({ ...formFields, [name]: value })
   }
 
   return (
-    <div className='sign-up-container'>
+    <SignInContainer>
       <h2>Already have an account?</h2>
       <span>Sign in your email and password</span>
 
@@ -75,7 +65,7 @@ const SignInForm = () => {
           value={password}
         />
 
-        <div className='buttons-container'>
+        <ButtonsContainer>
           <Button type='submit'>Sign In</Button>
 
           <Button
@@ -85,9 +75,9 @@ const SignInForm = () => {
           >
             Google sign In
           </Button>
-        </div>
+        </ButtonsContainer>
       </form>
-    </div>
+    </SignInContainer>
   )
 }
 

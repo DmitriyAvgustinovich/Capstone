@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import Button from "../button/button.component";
 
 export const PaymentFormContainer = styled.div`
