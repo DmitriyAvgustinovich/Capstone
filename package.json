@@ -54,5 +54,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@redux-saga/core": "^1.2.3",
+    "@types/redux-logger": "^3.0.9",
+    "babel-plugin-macros": "^3.1.0",
+    "typed-redux-saga": "^1.5.0"
   }
 }
